@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void main(){
+    int n,i, num_m = 0, num_f = 0;
+    
+    float alt_m = 0.0, alt_f = 0.0, maior = 0.0, med_m = 0.0, med_f = 0.0, alt = 0.0, alt_media = 0.0;
+    
+    char sexo;
+    
+    printf("Escolha o numero de pessoas que deseja cadastrar \n");
+    printf("Digite o valor: ");
+    scanf("%d",&n);
+    
+    setbuf(stdin,NULL);// limpa o teclado
+
+    for(i = 0; i < n; i++){
+
+        printf("digite o sexo da pessoa %d - m para masc / f para fem \n",i+1);
+        scanf("%c", &sexo); // le um caracter
+        setbuf(stdin,NULL);// limpa o teclado
+
+        printf(" -> digite a altura da pessoa %d em metros\n",i+1);
+        scanf("%f", &alt);
+        printf("\n");
+        
+        // somar o sexo masc
+        if(sexo =='m'|| sexo == 'M'){
+            num_m++;
+            alt_m += alt; // soma o anterior a altura e grava em alt_m (o msm para alt_f)
+        }
+        // somar o sexo fem
+        else if(sexo =='f' || sexo =='F'){
+            num_f++;
+            alt_f += alt;
+        }
+        
+        // escolher a maior altura
+        if(alt > maior){
+            maior = alt;
+        }
+        alt_media += alt;
+        printf("-----------------%d-------------------- \n",i);
+        setbuf(stdin,NULL);// limpa o teclado
+    }
+
+
+    // medias
+    alt_media = alt_media/n;
+    med_m = alt_m/num_m;
+    med_f = alt_f/num_f;
+
+    printf ("A altura media das pessas e de: %0.1f \n", alt_media);
+    printf ("A maior altura encontrada e de: %0.1f \n", maior);
+    printf ("A altura media das mulheres e de: %0.1f \n", med_f);
+    printf ("A altura media dos homens e de: %0.1f \n", med_m);
+    printf ("A quantidade de homens e de: %d \n", num_m);
+    
+    return 0;
+}
