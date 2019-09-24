@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+int main(void) {
+
+float banana_preco = 2.50,
+      banana_quant = 2,
+      uva_preco = 6.50,
+      uva_quant = 6,
+      pessego_preco = 10.22,
+      pessego_quant = 10;
+
+  printf("Produto | Preço Unitário| Quantidade | Preço Total|\n");
+  float preco_total = banana_preco * banana_quant;
+  printf("Banana  | R$ %6.2f\t\t| %11.0f| R$\t %5.2f|\n",banana_preco,banana_quant,preco_total);
+  preco_total = uva_preco * uva_quant;
+  printf("Uva\t\t| R$ %6.2f\t\t| %11.0f| R$\t %5.2f|\n",uva_preco,uva_quant,preco_total);
+  preco_total = pessego_preco * pessego_quant;
+  printf("Pessego\t| R$ %6.2f\t\t| %11.0f| R$ %8.2f|\n",pessego_preco,pessego_quant,preco_total);
+  float sub_total = (banana_preco*banana_quant)+(uva_preco*uva_quant)+(pessego_preco*pessego_quant);
+  printf("\t\t|\t\t\t\t| Sub-Total\t | R$ %8.2f|\n",sub_total);
+  float imposto_sob_produto= sub_total*0.05;
+  printf("     \t|Imposto(5%)\t\t\t\t | R$ %8.2f|\n",imposto_sob_produto);
+  float valor_total_produto = imposto_sob_produto + sub_total;
+  printf("\t\t|\t\t\t\t|Total\t\t | R$ %8.2f|\n",valor_total_produto);
+  printf("\n");
+
+  return 0;
+}
